@@ -12,6 +12,10 @@ obj/
 *.log
 *.vscode/
 
+# Config
+appsettings.json
+secrets.json
+
 # Visual Studio Code
 .vscode/
 .vscode-test/
