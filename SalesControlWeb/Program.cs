@@ -1,7 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using SalesControlWeb.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+string? connectionString = builder.Configuration.GetConnectionString("Default");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<SalesControlWebDbContext>(
+    options =>
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+);
 
 var app = builder.Build();
 

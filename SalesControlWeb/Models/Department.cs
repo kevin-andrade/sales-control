@@ -1,13 +1,10 @@
+﻿using System;
+using System.Collections.Generic;
+
 namespace SalesControlWeb.Models;
 
-class Department
+public partial class Department
 {
     public int Id { get; set; }
-    public string Name { get; set; }
-
-    public Department(int id, string name)
-    {
-        Id = id;
-        Name = name;
-    }
+    public string Name { get; set; } = null!;
 }
