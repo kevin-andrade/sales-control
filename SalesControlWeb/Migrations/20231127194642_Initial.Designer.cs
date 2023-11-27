@@ -11,8 +11,8 @@ using SalesControlWeb.Models;
 namespace SalesControlWeb.Migrations
 {
     [DbContext(typeof(SalesControlWebDbContext))]
-    [Migration("20231127142559_OtherEntities")]
-    partial class OtherEntities
+    [Migration("20231127194642_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
