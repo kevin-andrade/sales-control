@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SalesControlWeb.Data;
 using SalesControlWeb.Models;
+using SalesControlWeb.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 string? connectionString = builder.Configuration.GetConnectionString("Default");
@@ -8,12 +9,15 @@ string? connectionString = builder.Configuration.GetConnectionString("Default");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 builder.Services.AddDbContext<SalesControlWebDbContext>(
     options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
 );
-// Seed Service Registration Database
+
 builder.Services.AddScoped<SeedingService>();
+
+builder.Services.AddScoped<SellerService>();
 
 var app = builder.Build();
 
