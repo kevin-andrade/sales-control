@@ -5,17 +5,25 @@ namespace SalesControlWeb.Models
     public class Seller
     {
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "{0} is required")]
+        [StringLength(maximumLength:60, MinimumLength = 3, ErrorMessage = "{0} size should be between {2} and {1}")]
         public string Name { get; set; }
 
+        [Required(ErrorMessage = "{0} is required")]
+        [EmailAddress(ErrorMessage = "Enter a valid {0} address")]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "E-mail")]
         public string Email { get; set; }
 
+        [Required(ErrorMessage = "{0} is required")]
         [Display(Name = "Birth Date")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime BirthDate { get; set; }
 
+        [Required(ErrorMessage = "{0} is required")]
+        [Range(1.000, 20.000, ErrorMessage = "{0} must be from {1} to {2}")]
         [Display(Name = "Base Salary")]
         [DisplayFormat(DataFormatString = "{0:F2}")]
         public double BaseSalary { get; set; }
