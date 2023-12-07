@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using SalesControlWeb.Models.Enums;
 
 namespace SalesControlWeb.Models
@@ -6,6 +7,8 @@ namespace SalesControlWeb.Models
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:N2}")]
         public double Amount { get; set; }
         public SaleStatus Status { get; set; }
         public Seller Seller { get; set; }
